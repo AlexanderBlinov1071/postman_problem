@@ -49,8 +49,8 @@ def show_info_window():
     window = tk.Toplevel(app)
     window.title("Справка")
     info = "Задача китайского почтальона (англ. Chinese postman problem, CPP), маршрут почтальона или задача инспекции дорог заключается \n в поиске кратчайшего замкнутого пути или цикла, который проходит через каждое ребро (связного) взвешенного неориентированного графа.\n Если граф имеет эйлеров цикл (замкнутый маршрут, который проходит любое ребро ровно один раз),\n тогда этот цикл служит оптимальным решением. В противном случае задачей\n оптимизации является поиск наименьшего\n числа рёбер графа с повторными проходами (или подмножество рёбер с минимальным возможным общим весом), так что\n получающийся мультиграф имеет эйлеров цикл. Эта задача может быть решена за полиномиальное время."
-    text = "\nПрограммная реализация решения задачи китайского почтальона. Вершины графа необходимо вводить через запятую, например: a,b,c...\n и т.д. Аналогично ребра и их веса, без пробелов, через запятую, например: a-b,b-c,c-a... и т.д.\n Сплошной линией на рисунке изображаются реальные рёбра исходного графа, пунктиром - искусственные рёбра мультиграфа (имеет тот же вес, что ребро, отображаемое сплошной линией)."
-    label = tk.Label(window, text=info + text, font=26)
+    text = "\nПрограммная реализация решения задачи китайского почтальона. Вершины графа необходимо вводить через запятую, например: a,b,c...\n и т.д. Аналогично ребра и их веса, без пробелов, через запятую, например: a-b,b-c,c-a... и т.д.\n Сплошной линией на рисунке изображаются реальные рёбра\n исходного графа, пунктиром - искусственные рёбра мультиграфа (имеют тот же вес, что и ребра, отображаемые сплошной линией).\n"
+    label = tk.Label(window, text=info + text, font=22)
     label.pack()
     close_button = tk.Button(window, text="Закрыть", command=window.destroy, font=18)
     close_button.pack()
@@ -105,8 +105,8 @@ def solve():
 
             
             nx.draw(multigraph, pos, with_labels=True, node_color='yellow', node_size=600, edge_color="brown")
-            nx.draw_networkx_edges(multigraph, pos, edgelist=matching_edges, edge_color='brown', width=1.5, style='dashed', connectionstyle='arc3, rad=0.085', arrows=True)
-            nx.draw_networkx_edge_labels(multigraph, pos, edge_labels=e_label, label_pos=0.2, font_color='red', font_size=12)
+            nx.draw_networkx_edges(multigraph, pos, edgelist=matching_edges, edge_color='brown', width=1.5, style='dashed', connectionstyle='arc3, rad=0.185', arrows=True)
+            nx.draw_networkx_edge_labels(multigraph, pos, edge_labels=e_label, label_pos=0.18, font_color='red', font_size=12)
 
             result_entry.delete(0, 'end') 
             result_entry.insert(0, str(eulerian_tour))
